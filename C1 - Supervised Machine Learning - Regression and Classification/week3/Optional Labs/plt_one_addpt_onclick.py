@@ -167,8 +167,8 @@ class plt_one_addpt_onclick:
             artist.remove()
         self.fig.canvas.draw()
 
-    def resize_sq(self, bcid):
-        """ resizes the check box """
+    def resize_sq( self,bcid):
+        #""" resizes the check box """
         #future reference
         #print(f"width  : {bcid.rectangles[0].get_width()}")
         #print(f"height : {bcid.rectangles[0].get_height()}")
@@ -176,6 +176,10 @@ class plt_one_addpt_onclick:
         #print(f"bb     : {bcid.rectangles[0].get_bbox()}")
         #print(f"points : {bcid.rectangles[0].get_bbox().get_points()}")  #[[xmin,ymin],[xmax,ymax]]
 
+        if not bcid.boxes or len(bcid.boxes) == 0:
+            print("No boxes found in CheckButtons")
+        
+    
         h = bcid.rectangles[0].get_height()
         bcid.rectangles[0].set_height(3*h)
 
